@@ -1,10 +1,10 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from "react-router-dom";
 import bgimg from "../assets/BackgroundImg.jpg";
 
 const Home = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const navigate = useNavigate(); // Initialize navigate
+  const navigate = useNavigate();
 
   const styles = {
     container: {
@@ -24,7 +24,7 @@ const Home = () => {
     },
     content: {
       position: "relative",
-      zIndex: 1, // Ensure content is clickable
+      zIndex: 1,
       maxWidth: "800px",
     },
     heading: {
@@ -64,49 +64,18 @@ const Home = () => {
       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
       cursor: "pointer",
       position: "relative",
-      zIndex: 2, // Ensure cards are clickable
+      zIndex: 2,
     },
     sectionImg: {
       width: "100%",
       borderRadius: "10px",
       marginBottom: "10px",
     },
-    modalOverlay: {
-      position: "fixed",
-      top: 0,
-      left: 0,
-      width: "100%",
-      height: "100%",
-      backgroundColor: "rgba(0, 0, 0, 0.5)",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-      zIndex: 1000,
-    },
-    modalContent: {
-      width: "400px",
-      backgroundColor: "#fff",
-      padding: "20px",
-      borderRadius: "10px",
-      textAlign: "center",
-      color: "#333",
-      position: "relative",
-    },
-    closeButton: {
-      position: "absolute",
-      top: "10px",
-      right: "15px",
-      fontSize: "20px",
-      cursor: "pointer",
-      background: "none",
-      border: "none",
-      color: "#ff6347",
-    },
   };
 
   const closeModalAndNavigate = () => {
-    setIsModalOpen(false); // Close the modal
-    navigate("/recipes"); // Navigate to the recipes page
+    setIsModalOpen(false);
+    navigate("/recipes");
   };
 
   return (
@@ -123,10 +92,7 @@ const Home = () => {
 
       {/* Sections */}
       <div style={styles.sections}>
-        <div
-          style={styles.sectionCard}
-          onClick={() => setIsModalOpen(true)}
-        >
+        <div style={styles.sectionCard} onClick={() => setIsModalOpen(true)}>
           <img
             src="https://source.unsplash.com/300x200/?recipe,food"
             alt="Recipes"
@@ -136,18 +102,18 @@ const Home = () => {
           <p>Find the best recipes from around the world, curated for you.</p>
         </div>
 
-        <div style={styles.sectionCard}>
-          <img
-            src="https://source.unsplash.com/300x200/?restaurant,food"
-            alt="Restaurants"
-            style={styles.sectionImg}
-          />
-          <h3>Top Restaurants</h3>
-          <p>
-            Discover highly-rated restaurants near you for an amazing dining
-            experience.
-          </p>
-        </div>
+        <div style={styles.sectionCard} onClick={() => navigate("/top-restaurants")}>
+  <img
+    src="https://source.unsplash.com/300x200/?restaurant,food"
+    alt="Restaurants"
+    style={styles.sectionImg}
+  />
+  <h3>Top Restaurants</h3>
+  <p>
+    Discover highly-rated restaurants near you for an amazing dining experience.
+  </p>
+</div>
+
 
         <div style={styles.sectionCard}>
           <img
@@ -158,14 +124,87 @@ const Home = () => {
           <h3>Food Blog</h3>
           <p>Read exciting food stories, cooking tips, and chef insights.</p>
         </div>
+
+        {/* New Sections */}
+        <div style={styles.sectionCard}>
+          <img
+            src="https://source.unsplash.com/300x200/?cooking,kitchen"
+            alt="Cooking Tips"
+            style={styles.sectionImg}
+          />
+          <h3>Cooking Tips & Tricks</h3>
+          <p>Master new cooking techniques and enhance your skills.</p>
+        </div>
+
+        <div style={styles.sectionCard}>
+          <img
+            src="https://source.unsplash.com/300x200/?chef,kitchen"
+            alt="Popular Chefs"
+            style={styles.sectionImg}
+          />
+          <h3>Meet the Chefs</h3>
+          <p>Learn from top chefs and get their secret recipes.</p>
+        </div>
+
+        <div style={styles.sectionCard}>
+          <img
+            src="https://source.unsplash.com/300x200/?discount,offer"
+            alt="Special Offers"
+            style={styles.sectionImg}
+          />
+          <h3>Special Offers & Deals</h3>
+          <p>Exclusive discounts on cooking classes, restaurants, and more.</p>
+        </div>
+
+        <div style={styles.sectionCard}>
+          <img
+            src="https://source.unsplash.com/300x200/?cooking,challenge"
+            alt="Cooking Challenges"
+            style={styles.sectionImg}
+          />
+          <h3>Cooking Challenges</h3>
+          <p>Compete in fun challenges and showcase your cooking skills!</p>
+        </div>
       </div>
 
       {/* Modal */}
       {isModalOpen && (
-        <div style={styles.modalOverlay}>
-          <div style={styles.modalContent}>
+        <div
+          style={{
+            position: "fixed",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              width: "400px",
+              backgroundColor: "#fff",
+              padding: "20px",
+              borderRadius: "10px",
+              textAlign: "center",
+              color: "#333",
+              position: "relative",
+            }}
+          >
             <button
-              style={styles.closeButton}
+              style={{
+                position: "absolute",
+                top: "10px",
+                right: "15px",
+                fontSize: "20px",
+                cursor: "pointer",
+                background: "none",
+                border: "none",
+                color: "#ff6347",
+              }}
               onClick={() => setIsModalOpen(false)}
             >
               ✖
@@ -176,7 +215,6 @@ const Home = () => {
               Whether you're a fan of spicy Indian curries, Italian pasta, or
               French desserts, we have something for everyone!
             </p>
-            {/* Use the function to close modal and navigate */}
             <button style={styles.button} onClick={closeModalAndNavigate}>
               Explore Recipes
             </button>
