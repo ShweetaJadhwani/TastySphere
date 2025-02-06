@@ -103,19 +103,18 @@ const Home = () => {
         </div>
 
         <div style={styles.sectionCard} onClick={() => navigate("/top-restaurants")}>
-  <img
-    src="https://source.unsplash.com/300x200/?restaurant,food"
-    alt="Restaurants"
-    style={styles.sectionImg}
-  />
-  <h3>Top Restaurants</h3>
-  <p>
-    Discover highly-rated restaurants near you for an amazing dining experience.
-  </p>
-</div>
+          <img
+            src="https://source.unsplash.com/300x200/?restaurant,food"
+            alt="Restaurants"
+            style={styles.sectionImg}
+          />
+          <h3>Top Restaurants</h3>
+          <p>
+            Discover highly-rated restaurants near you for an amazing dining experience.
+          </p>
+        </div>
 
-
-        <div style={styles.sectionCard}>
+        <div style={styles.sectionCard} onClick={() => navigate("/food-blog")}>
           <img
             src="https://source.unsplash.com/300x200/?blog,food"
             alt="Food Blog"
@@ -125,8 +124,7 @@ const Home = () => {
           <p>Read exciting food stories, cooking tips, and chef insights.</p>
         </div>
 
-        {/* New Sections */}
-        <div style={styles.sectionCard}>
+        <div style={styles.sectionCard} onClick={() => navigate("/cooking-tips")}>
           <img
             src="https://source.unsplash.com/300x200/?cooking,kitchen"
             alt="Cooking Tips"
@@ -136,7 +134,7 @@ const Home = () => {
           <p>Master new cooking techniques and enhance your skills.</p>
         </div>
 
-        <div style={styles.sectionCard}>
+        <div style={styles.sectionCard} onClick={() => navigate("/meet-the-chefs")}>
           <img
             src="https://source.unsplash.com/300x200/?chef,kitchen"
             alt="Popular Chefs"
@@ -146,7 +144,7 @@ const Home = () => {
           <p>Learn from top chefs and get their secret recipes.</p>
         </div>
 
-        <div style={styles.sectionCard}>
+        <div style={styles.sectionCard} onClick={() => navigate("/special-offers")}>
           <img
             src="https://source.unsplash.com/300x200/?discount,offer"
             alt="Special Offers"
@@ -156,7 +154,7 @@ const Home = () => {
           <p>Exclusive discounts on cooking classes, restaurants, and more.</p>
         </div>
 
-        <div style={styles.sectionCard}>
+        <div style={styles.sectionCard} onClick={() => navigate("/cooking-challenges")}>
           <img
             src="https://source.unsplash.com/300x200/?cooking,challenge"
             alt="Cooking Challenges"
